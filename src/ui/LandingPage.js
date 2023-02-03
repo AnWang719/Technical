@@ -1,5 +1,4 @@
 import { Stack } from "react-bootstrap";
-import Header from "../components/header";
 import LanguageNav from "../components/LanguageNav";
 import ImgHotspot from "./ImgHotspot";
 

@@ -1,7 +1,7 @@
 // import { Stack } from "react-bootstrap";
 import { Image } from "react-bootstrap";
 import { useEffect } from "react";
-import { useNavigate, useLocation, useParams } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouse } from "@fortawesome/free-solid-svg-icons";
 import LanguageNav from "./LanguageNav";
