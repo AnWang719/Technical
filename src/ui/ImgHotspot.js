@@ -16,7 +16,7 @@ function ImgHotspot({ src, onClick, contents }) {
   });
   return (
     <>
-      <Image src={src} useMap="#image-map" style={{ width: "auto" }} />
+      <Image src={src} useMap="#image-map" fluid />
       <map name="image-map">{mapSections}</map>
     </>
   );

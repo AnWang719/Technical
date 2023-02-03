@@ -1,4 +1,6 @@
 import { Stack } from "react-bootstrap";
+import Header from "../components/header";
+import LanguageNav from "../components/LanguageNav";
 import ImgHotspot from "./ImgHotspot";
 
 function LandingPage({
@@ -9,23 +11,17 @@ function LandingPage({
   onClick,
   contents,
   setMaoriSelected,
+  maoriSelected,
 }) {
-  const EnglishSelectedHandler = () => {
-    setMaoriSelected(false);
-  };
-
-  const MaoriSelectedHandler = () => {
-    setMaoriSelected(true);
-  };
   return (
     <>
-      <div className="d-flex justify-content-start px-5 ">
-        <a href={() => false} onClick={EnglishSelectedHandler}>
-          English
-        </a>
-        <a href={() => false} className="px-3" onClick={MaoriSelectedHandler}>
-          Maori
-        </a>
+      <div className="d-flex justify-content-between">
+        <div className="d-flex justify-content-start px-5 pt-4">
+          <LanguageNav
+            maoriSelected={maoriSelected}
+            setMaoriSelected={setMaoriSelected}
+          />
+        </div>
       </div>
 
       <Stack

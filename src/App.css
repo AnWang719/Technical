@@ -8,14 +8,8 @@ body .nav{
 
 .nav-link:focus, .nav-link:hover{
   text-decoration: line-through;
-
-  /* color: grey ; */
 }
 
-
-/* .lanOptions a:nth-child(2){
-  padding-left: 5px;
-} */
 
 body a{
   cursor: pointer;
@@ -23,6 +17,11 @@ body a{
   text-decoration: none;
 }
 
-body a:active {
-  color: blue;
+body a:hover{
+  color: black;
+
+}
+
+.active{
+  text-decoration: underline;
 }

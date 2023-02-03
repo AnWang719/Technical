@@ -1,59 +1,53 @@
 // import { Stack } from "react-bootstrap";
 import { Image } from "react-bootstrap";
 import { useEffect } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouse } from "@fortawesome/free-solid-svg-icons";
+import LanguageNav from "./LanguageNav";
 function HotSpotPage({ maoriSelected, setMaoriSelected }) {
   const { state } = useLocation();
   const navigate = useNavigate();
-
+  // const params = useParams();
   console.log(state);
   useEffect(() => {
     var timer = setTimeout(() => {
       navigate(`/${state.category}`);
-    }, 60000);
+    }, 5000);
 
     window.addEventListener(
       "click",
       function () {
         console.log("moved");
         clearTimeout(timer);
+
         timer = setTimeout(() => {
+          // console.log(params);
+          console.log(state.category);
           navigate(`/${state.category}`);
-        }, 60000);
+        }, 5000);
       },
       true
     );
-  }, []);
+  }, [navigate, state.category]);
 
   const homePageNavHandler = () => {
     navigate(`/${state.category}`);
   };
 
-  const EnglishSelectedHandler = () => {
-    setMaoriSelected(false);
-  };
-
-  const MaoriSelectedHandler = () => {
-    setMaoriSelected(true);
-  };
-
   return (
     <>
-      <div className="d-flex justify-content-start px-5 ">
+      <div className="d-flex justify-content-start p-5 ">
         <FontAwesomeIcon
           icon={faHouse}
           className="fa-xl"
           onClick={homePageNavHandler}
         />
         <div className="px-5 py-1 ">
-          <a href={() => false} onClick={EnglishSelectedHandler}>
-            English
-          </a>
-          <a href={() => false} className="px-3" onClick={MaoriSelectedHandler}>
-            Maori
-          </a>
+          <LanguageNav
+            maoriSelected={maoriSelected}
+            setMaoriSelected={setMaoriSelected}
+          />
         </div>
       </div>
 
