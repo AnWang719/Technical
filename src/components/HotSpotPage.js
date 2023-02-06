@@ -8,28 +8,42 @@ import LanguageNav from "./LanguageNav";
 function HotSpotPage({ maoriSelected, setMaoriSelected }) {
   const { state } = useLocation();
   const navigate = useNavigate();
-  // const params = useParams();
-  console.log(state);
+
   useEffect(() => {
-    var timer = setTimeout(() => {
-      navigate(`/${state.category}`);
-    }, 5000);
+    let timeout = null;
 
-    window.addEventListener(
-      "click",
-      function () {
-        console.log("moved");
-        clearTimeout(timer);
+    const navBackToHome = () => {
+      // code to reset the application
+      navigate(-1);
+    };
 
-        timer = setTimeout(() => {
-          // console.log(params);
-          console.log(state.category);
-          navigate(`/${state.category}`);
-        }, 5000);
-      },
-      true
-    );
-  }, [navigate, state.category]);
+    const restartAutoReset = () => {
+      if (timeout) {
+        clearTimeout(timeout);
+      }
+      timeout = setTimeout(() => {
+        navBackToHome();
+      }, 1000 * 5);
+    };
+
+    const onMouseMove = () => {
+      restartAutoReset();
+    };
+
+    // initiate timeout
+    restartAutoReset();
+
+    // listen for mouse events
+    window.addEventListener("mousemove", onMouseMove);
+
+    // cleanup
+    return () => {
+      if (timeout) {
+        clearTimeout(timeout);
+        window.removeEventListener("mousemove", onMouseMove);
+      }
+    };
+  }, [navigate]);
 
   const homePageNavHandler = () => {
     navigate(`/${state.category}`);
