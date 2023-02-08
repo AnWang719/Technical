@@ -2,6 +2,8 @@ import { Stack } from "react-bootstrap";
 import LanguageNav from "../components/LanguageNav";
 import ImgHotspot from "./ImgHotspot";
 
+//Landing page template can be used for multiple components where it's needed, styles are pre-set based on each interactivity display requirements
+
 function LandingPage({
   isHorizontal,
   title,

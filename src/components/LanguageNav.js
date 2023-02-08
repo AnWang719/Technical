@@ -1,4 +1,9 @@
+import { Button } from "react-bootstrap";
+
+//This component is to render the langauage navheader, which can be called in respective component where needed
+
 function LanguageNav({ maoriSelected, setMaoriSelected }) {
+  //Dynamically change styling based on state changes
   const EnglishSelectedHandler = () => {
     setMaoriSelected(false);
   };
@@ -8,20 +13,20 @@ function LanguageNav({ maoriSelected, setMaoriSelected }) {
   };
   return (
     <>
-      <a
-        href={() => false}
+      <Button
+        variant="link"
         onClick={EnglishSelectedHandler}
         className={`${maoriSelected ? "" : "active"}`}
       >
         English
-      </a>
-      <a
-        href={() => false}
-        className={`px-3 ${maoriSelected ? "active" : " "}`}
+      </Button>
+      <Button
+        variant="link"
+        className={`${maoriSelected ? "active" : " "}`}
         onClick={MaoriSelectedHandler}
       >
         Maori
-      </a>
+      </Button>
     </>
   );
 }

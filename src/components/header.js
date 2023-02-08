@@ -1,6 +1,8 @@
 import { Nav } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 
+//Header component to render navheader
+
 function Header() {
   return (
     <Nav className="justify-content-end px-5 pt-5">

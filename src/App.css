@@ -11,6 +11,36 @@ body .nav{
 }
 
 
+body .btn{
+  color: black;
+ 
+}
+
+
+body .btn:hover{
+  color: black;
+}
+
+body .btn.active{
+  color: black;
+}
+
+
+body .btn-link{
+ text-decoration: none;
+
+}
+#root .btn-link:focus,.btn-link:active {
+  color: black ;
+
+}
+
+.btn-link.active{
+  text-decoration: underline;
+
+}
+
+
 body a{
   cursor: pointer;
   color: black;
@@ -20,7 +50,7 @@ body a{
 body a:hover{
   color: black;
 
-}
+} 
 
 .active{
   text-decoration: underline;
